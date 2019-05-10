@@ -57,14 +57,14 @@ classdef audio_equalizer_exported < matlab.apps.AppBase
         function time = formatTime(~, seconds)
             minutes = floor(seconds / 60);
             seconds = seconds - minutes * 60;
-            time = minutes + ":" + seconds;
+            time = minutes + ':' + seconds;
         end
         
         function setTotalTime(app, size, Fs)
             global seconds;
             seconds = ceil(size / Fs);
             app.Label_totalTime.Text = formatTime(app, seconds);
-            app.Label_currentTime.Text = "0:00";
+            app.Label_currentTime.Text = '0:00';
         end
         
         function setCurrentTime(app)
@@ -79,7 +79,7 @@ classdef audio_equalizer_exported < matlab.apps.AppBase
                 end
             end
             if(pausedAt == seconds)
-                app.Label_currentTime.Text = "0:00";
+                app.Label_currentTime.Text = '0:00';
             end
         end
         
@@ -96,8 +96,11 @@ classdef audio_equalizer_exported < matlab.apps.AppBase
             end
             pausedAt = temp;
             if(pausedAt == seconds)
-                app.Label_currentTime.Text = "0:00";
+                app.Label_currentTime.Text = '0:00';
             end
+        end
+        
+        function setFilters(app)
         end
         
     end
@@ -228,7 +231,7 @@ classdef audio_equalizer_exported < matlab.apps.AppBase
             playing = false;
             paused = false;
             stop(player);
-            app.Label_currentTime.Text = "0:00";
+            app.Label_currentTime.Text = '0:00';
             pausedAt = 0;
         end
     end
