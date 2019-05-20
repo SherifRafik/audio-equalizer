@@ -1,1 +1,1 @@
-# Audio-Equalizer
+# audio-equalizer
